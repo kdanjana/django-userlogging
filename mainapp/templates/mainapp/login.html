@@ -1,0 +1,17 @@
+<html>
+    <title> Login </title>
+    <body>
+        <form action="/login/" method="POST">
+            {% csrf_token %}
+            {{ error }}
+            {% for field in form %}
+                <div>
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit"> Login </button>
+            <button> <a href="{% url 'mainapp:main' %}"> Cancel </a></button>
+        </form>
+    </body>
+</html>
