@@ -1,13 +1,17 @@
-<html>
-    <title> Main </title>
-    <body>
-        <h2> Welcome!!! </h2>
-        <div> 
-            <button> <a href="{% url 'mainapp:login' %}">Login </a></button>
-        </div>
-        <div>
-            If you are new user, 
-            <button> <a href="{% url 'mainapp:signup' %}"> Signup  </a></button>  
-        </div>
-    </body>
-</html>
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+Main Page
+{% endblock %}
+
+{% block content %}
+    <h2> Welcome!!! </h2>
+    <div> 
+        <button> <a href="{% url 'mainapp:login' %}">Login </a></button>
+    </div>
+    <div>
+        If you are new user, 
+        <button> <a href="{% url 'mainapp:signup' %}"> Signup  </a></button>  
+    </div>
+{% endblock %}
+        

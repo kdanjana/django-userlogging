@@ -1,9 +1,12 @@
-<html>
-    <title> LogOut </title>
-    <body>
-        <h3> You have loggout successfully .</h3>
-        <div>
-            <a href="{% url 'mainapp:main' %}"> Main Page </a>
-        </div>
-    </body>
-</html>
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+Logout Page
+{% endblock %}
+
+{% block content %}
+    <h3> You have loggedout successfully .</h3>
+    <div>
+        <a href="{% url 'mainapp:main' %}"> Main Page </a>
+    </div>
+{% endblock %}

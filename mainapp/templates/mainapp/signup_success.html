@@ -1,9 +1,15 @@
-<html>
-    <title> Success </title>
-    <body>
-        <h3> Signup is  done. </h3>
-        <div>
-            <a href="{% url 'mainapp:main' %}"> Main Page </a>
-        </div>
-    </body>
-</html>
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+Signup done.
+{% endblock %}
+
+
+{% block content %}
+    <h3> Signup is  done. </h3>
+    <div>
+        <a href="{% url 'mainapp:main' %}"> Main Page </a>
+    </div>
+{% endblock %}
+    
+        
