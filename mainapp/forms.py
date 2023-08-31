@@ -20,6 +20,7 @@ class UserSignUpForm(forms.ModelForm):
               "user_name": "User Name",
               "first_name": "First Name",
               "last_name": "Last Name",
+              "email": "Email",
               "password": "Enter Password",
               "re_password": "Re-Enter Password"
         }
@@ -32,12 +33,9 @@ class UserSignUpForm(forms.ModelForm):
         # data from the form is fetched using super function
         super(UserSignUpForm, self).clean()
         # extract the fields from the cleaned data
-        username = self.cleaned_data.get('user_name')
         password = self.cleaned_data.get('password')
         re_password = self.cleaned_data.get('re_password')
         # conditions to be met 
-        if len(User.objects.filter(user_name=username)) != 0:
-             self._errors['user_name'] = self.error_class(['Username already exists.'])
         if password != re_password:
              self._errors['re_password'] = self.error_class(['Please enter password correctly.'])
         if len(password) > 20 or len(password) == 0:
