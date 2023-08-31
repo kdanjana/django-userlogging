@@ -1,12 +1,16 @@
-<html>
-    <title> Signup Form</title>
-    <body>
-            <form action="/signup/" method="POST">
-            {% csrf_token %}
-            {% if error_mssg %}
-                {{ error_mssg }}Please enter new user.
-            {% endif %}
-            {% for field in form %}
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+Signup Page
+{% endblock %}
+
+{% block content %}
+    {% if error_mssg %}
+        {{ error_mssg }}Please enter new user.
+    {% endif %}
+    <form action="/signup/" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
             <div>
                 {{ field.label_tag }}
                 {{ field }}
@@ -18,5 +22,4 @@
         <button type="submit"> Submit </button>
         <button> <a href="{% url 'mainapp:main' %}"> Cancel  </a> </button>
     </form>
-</body>
-</html>
+{% endblock %}

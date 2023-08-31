@@ -5,11 +5,11 @@ Login Page
 {% endblock %}
 
 {% block content %}
+    {% if error %}
+        {{ error }}
+    {% endif %}
     <form action="/login/" method="POST">
-        {% csrf_token %}
-        {% if error %}
-            {{ error }}Please enter new user.
-        {% endif %}
+        {% csrf_token %}        
         {% for field in form %}
             <div>
                 {{ field.label_tag }}
@@ -19,6 +19,7 @@ Login Page
         <button type="submit"> Login </button>
         <button> <a href="{% url 'mainapp:main' %}"> Cancel </a></button>
     </form>    
+    
 {% endblock %}
  
         
