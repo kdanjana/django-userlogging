@@ -11,11 +11,8 @@ class UserSignUpForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ["user_name", "first_name", "last_name", "email", "password", "re_password"]
-        #error_messages = {"user_name" : {"required" : "Please enter user name" } }
-        def __init__(self, *args, **kwargs):
-            super(UserSignUpForm, self).__init__(*args, **kwargs)
-            # add custom error messages
-            self.fields['user_name'].error_messages.update({'required': "Please enter user name"})
+        error_messages = {"user_name" : {"required" : "Please enter user name"}}
+        
         labels = {
               "user_name": "User Name",
               "first_name": "First Name",
@@ -56,9 +53,5 @@ class LoginForm(forms.ModelForm):
             "password": forms.TextInput(attrs={'type':'password'})
         }
         
-        def __init__(self, *args, **kwargs):
-            super(LoginForm, self).__init__(*args, **kwargs)
-            # add custom error messages
-            self.fields['user_name'].error_messages.update({'required': 'Please enter user name.', })
         
        
