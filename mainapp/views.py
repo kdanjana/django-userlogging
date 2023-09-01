@@ -12,8 +12,7 @@ def main_page(request):
 
 class SignupPage(View):
     def get(self, request):
-        new_book_form = UserSignUpForm()
-        return render(request, "mainapp/signup.html", {"form": new_book_form})
+        return render(request, "mainapp/signup.html", {"form": UserSignUpForm()})
     
     def post(self,request):
         submitted_form = UserSignUpForm(request.POST or None)
@@ -42,8 +41,7 @@ def signup_success(request):
 
 class LoginPage(View):
     def get(self, request):
-        login_form = LoginForm()
-        return render(request, "mainapp/login.html", {"form": login_form})
+        return render(request, "mainapp/login.html", {"form": LoginForm()})
 
     def post(self, request):
         submitted_form = LoginForm(request.POST or None)
@@ -59,9 +57,8 @@ class LoginPage(View):
         if error_mssg == "":
             return HttpResponseRedirect("/ln_success/")
         else:
-            new_form = LoginForm()
             return render(request, "mainapp/login.html", {
-                "form": new_form,
+                "form": LoginForm(),
                 "error": error_mssg
             })
         
